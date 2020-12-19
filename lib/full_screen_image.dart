@@ -7,16 +7,23 @@ class FullScreenWidget extends StatelessWidget {
       {@required this.child,
       this.backgroundColor = Colors.black,
       this.backgroundIsTransparent = true,
-      this.disposeLevel});
+      this.disposeLevel,
+      this.onLongPress,
+      this.onDoubleTap,
+      });
 
   final Widget child;
   final Color backgroundColor;
   final bool backgroundIsTransparent;
   final DisposeLevel disposeLevel;
+  final Function onLongPress;
+  final Function onDoubleTap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onLongPress: onLongPress,
+      onDoubleTap: onDoubleTap,
       onTap: () {
         Navigator.push(
             context,
